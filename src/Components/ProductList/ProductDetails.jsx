@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import './productDetails.css'
 function ProductDetails({product}){
     let[productCount, updateCount] = useState(0)
 
@@ -17,13 +17,17 @@ function ProductDetails({product}){
         productCount < 0 ? productCount = 0 : productCount = productCount
         updateCount(++productCount)
     }
+
+let badgeClass = 'badge badge-margin-left'
+badgeClass += product.isAvailable == true ? ' bg-success' : ' bg-danger'
+
     return(<>
             <div className="d-flex align-items-center justify-content-start mt-1">
                 <h6 className="font-weight-bold my-2" style={{marginRight:'5px'}}>${product.price}</h6>
                 <button onClick={decreamentHandler} disabled={productCount == 0}>-</button>
                 <span style={{padding:'5px 20px', width:'70px'}}>{displayFormattedProductCount()}</span>
                 <button onClick={incrementHandler} disabled={productCount==product.stock}>+</button>
-                <span >{product.isAvailable?'Available':'Unavailable'}</span>
+                <span className={badgeClass}>{product.isAvailable?'Available':'Unavailable'}</span>
             </div>
     </>)
 }
