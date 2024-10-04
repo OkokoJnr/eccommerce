@@ -1,6 +1,6 @@
 import ProductItem from "./ProductItem";
 function ProductList({productList}){
-    return(<>
+    return productList.length == 0 ? <h2>No Available Products at the moment</h2> : (<>
             {
       productList.map((product)=>{
         return (
