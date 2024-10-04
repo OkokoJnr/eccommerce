@@ -1,4 +1,7 @@
+import { useState } from 'react';
+
 import ProductList from './Components/ProductList/ProductList';
+import FilterProduct from './Components/FilterProduct/FilterProduct';
 import './App.css'
 import fruit from './assets/fruit.png'
 
@@ -41,9 +44,27 @@ let products = [
 
 
 function App() {
+  let [productList, updateProductList] = useState(products)
+  let[filterTextValue, updateFilterTextValue] = useState('')
+
+  
+function onFilterValueSelected(filterValue){
+  updateFilterTextValue(filterValue)
+}
+
+let FilterProductList = productList.filter((product)=>{
+  if(filterTextValue == 'available'){
+      return product.isAvailable == true
+  }else if(filterTextValue === 'unavailable'){
+      return product.isAvailable == false
+  }else{
+      return product
+  }
+})
 
     return (<>
-              <ProductList productList = {products}/>
+              <FilterProduct FilterValueSelected = {onFilterValueSelected}/>
+              <ProductList productList = {FilterProductList} />
         </>)
   
 }
