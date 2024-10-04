@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button";
 import './productDetails.css'
 function ProductDetails({product}){
     let[productCount, updateCount] = useState(0)
@@ -24,9 +25,9 @@ badgeClass += product.isAvailable == true ? ' bg-success' : ' bg-danger'
     return(<>
             <div className="d-flex align-items-center justify-content-start mt-1">
                 <h6 className="font-weight-bold my-2" style={{marginRight:'5px'}}>${product.price}</h6>
-                <button onClick={decreamentHandler} disabled={productCount == 0}>-</button>
+                <Button eventHandler={decreamentHandler} disable={productCount == 0}>-</Button>
                 <span style={{padding:'5px 20px', width:'70px'}}>{displayFormattedProductCount()}</span>
-                <button onClick={incrementHandler} disabled={productCount==product.stock}>+</button>
+                <Button eventHandler={incrementHandler} disable={productCount==product.stock}>+</Button>
                 <span className={badgeClass}>{product.isAvailable?'Available':'Unavailable'}</span>
             </div>
     </>)
