@@ -7,7 +7,7 @@ function ProductDetails({product}){
         return productCount > 0 ? productCount : 'Zero'
         
     }
-    
+
     function decreamentHandler(){
         //decrease product count
         updateCount(--productCount)
@@ -20,9 +20,9 @@ function ProductDetails({product}){
     return(<>
             <div className="d-flex align-items-center justify-content-start mt-1">
                 <h6 className="font-weight-bold my-2" style={{marginRight:'5px'}}>${product.price}</h6>
-                <button onClick={decreamentHandler}>-</button>
+                <button onClick={decreamentHandler} disabled={productCount == 0}>-</button>
                 <span style={{padding:'5px 20px', width:'70px'}}>{displayFormattedProductCount()}</span>
-                <button onClick={incrementHandler}>+</button>
+                <button onClick={incrementHandler} disabled={productCount==product.stock}>+</button>
                 <span >{product.isAvailable?'Available':'Unavailable'}</span>
             </div>
     </>)
