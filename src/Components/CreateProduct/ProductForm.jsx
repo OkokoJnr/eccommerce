@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function ProductForm({createProduct}){
+function ProductForm({createProduct, cancelForm}){
     let [Name, updateName] = useState('')
     let [price, updatePrice] = useState('')
     let [description, updateDesc] = useState('')
@@ -44,7 +44,7 @@ function ProductForm({createProduct}){
             image:image,
             price: Number(price)
         }
-        console.log(newProduct)
+
         updateName('')
         updatePrice('')
         updateDesc('')
@@ -52,6 +52,7 @@ function ProductForm({createProduct}){
         updateStock('')
         updateImage('')
         createProduct(newProduct)
+        cancelForm()
     }
 
     return(<>
