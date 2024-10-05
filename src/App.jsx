@@ -63,8 +63,11 @@ let FilterProductList = productList.filter((product)=>{
   }
 })
 
+function onCreateProduct(newProduct){
+  updateProductList([newProduct, ...productList])
+}
     return (<>
-              <CreateProduct/>
+              <CreateProduct createProduct={onCreateProduct}/>
               <FilterProduct FilterValueSelected = {onFilterValueSelected}/>
               <ProductList productList = {FilterProductList} />
         </>)

@@ -10,4 +10,3 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-// fatal: unable to access 'https://github.com/OkokoJnr/eccommerce.git/': Recv failure: Connection was reset

@@ -1,8 +1,14 @@
 import ProductForm from "./ProductForm";
 
-function CreateProduct(){
+function CreateProduct({createProduct}){
+
+
+    function onCreateProduct(product){
+        createProduct(product)
+    }
+
     return(<>
-            <ProductForm/>
+            <ProductForm createProduct={onCreateProduct}/>
     </>)
 }
 
