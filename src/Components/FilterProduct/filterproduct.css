@@ -5,3 +5,9 @@
     border-radius: 2px;
     border: #ddd 1px solid;
 }
+
+select{
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

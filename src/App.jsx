@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import ProductList from './Components/ProductList/ProductList';
 import FilterProduct from './Components/FilterProduct/FilterProduct';
+import CreateProduct from './Components/CreateProduct/CreateProduct';
 import './App.css'
 import fruit from './assets/fruit.png'
 
@@ -63,6 +64,7 @@ let FilterProductList = productList.filter((product)=>{
 })
 
     return (<>
+              <CreateProduct/>
               <FilterProduct FilterValueSelected = {onFilterValueSelected}/>
               <ProductList productList = {FilterProductList} />
         </>)
